@@ -7,3 +7,10 @@
 
    You can use pytest or unittest.
 """
+from counter import Counter
+import unittest
+
+
+class TestCounter(unittest):
+    def test_(self):
+        pass

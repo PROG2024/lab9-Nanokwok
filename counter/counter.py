@@ -8,3 +8,22 @@
    1. in Counter, do not use any static methods except __new__.
       You may not have a __new__ depending on how you implement the singleton.
 """
+
+
+class Counter:
+    __curr = 0
+
+    def __init__(self):
+        self.__count = self.__curr
+
+    def __str__(self):
+        return f"{self.__count} {id(self.__count)}"
+
+    @property
+    def count(self):
+        return self.__count
+
+    def increment(self):
+        return self.__count + 1
+
+
