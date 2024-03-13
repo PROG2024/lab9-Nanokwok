@@ -12,17 +12,12 @@
 
 class Counter:
     _instance = None
-    # def __new__(cls):
-    #     if cls.instance is None:
-    #         cls.instance = super().__new__(cls)
-    #         # cls.instance.__count = 0
-    #     return cls.instance
 
-    def __init__(self):
-        if self._instance is None:
-            self.__count = 1
-            Counter._instance = self
-        # self.__count = self.instance
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.__count = 1
+        return cls._instance
 
     def __str__(self):
         return f"{self.__count}"
@@ -35,6 +30,3 @@ class Counter:
         # return self.__count + 1
         self.__count += 1
         return self.__count
-
-
-
