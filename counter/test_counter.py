@@ -29,6 +29,4 @@ class TestCounter(unittest.TestCase):
 
     def test_shares_same_count(self):
         self.c2.increment()
-        self.assertEqual(self.c1.count, 3
-
-                         )
+        self.assertEqual(self.c1.count, 3)
