@@ -11,19 +11,30 @@
 
 
 class Counter:
-    __curr = 0
+    _instance = None
+    # def __new__(cls):
+    #     if cls.instance is None:
+    #         cls.instance = super().__new__(cls)
+    #         # cls.instance.__count = 0
+    #     return cls.instance
 
     def __init__(self):
-        self.__count = self.__curr
+        if self._instance is None:
+            self.__count = 1
+            Counter._instance = self
+        # self.__count = self.instance
 
     def __str__(self):
-        return f"{self.__count} {id(self.__count)}"
+        return f"{self.__count}"
 
     @property
     def count(self):
         return self.__count
 
     def increment(self):
-        return self.__count + 1
+        # return self.__count + 1
+        self.__count += 1
+        return self.__count
+
 
 

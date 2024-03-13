@@ -7,10 +7,19 @@
 
    You can use pytest or unittest.
 """
-from counter import Counter
 import unittest
+from counter import Counter
 
 
-class TestCounter(unittest):
-    def test_(self):
-        pass
+
+class TestCounter(unittest.TestCase):
+    def setUp(self):
+        self.c1 = Counter()
+
+    def test_invoking(self):
+        self.assertEqual(self.c1.count, 1)
+        self.assertEqual(self.c1.count, 1)
+
+
+
+
